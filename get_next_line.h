@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:49 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/20 21:02:02 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/21 15:50:49 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <stdlib.h>
+# include <sys/types.h>
 
 char	*ft_strdup(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);

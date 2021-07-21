@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/21 16:07:24 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/21 20:01:58 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*get_next_line(int fd)
 	*/
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (buffer == NULL)
-		return (-1);
+		return (NULL);
 	/*
 	** Realizar leitura do arquivo texto e capturar o retorno
 	*/
@@ -34,6 +34,7 @@ char	*get_next_line(int fd)
 	*/
 	while (ret > 0)
 	{
+		//FAZER VERIFICAÇÃO DO RETORNO DA FUNÇÃO READ
 		buffer[ret] = '\0';
 		if (save == NULL)
 			save = ft_strdup(buffer);
@@ -49,4 +50,6 @@ char	*get_next_line(int fd)
 	}
 	free(buffer);
 	return (save);
+
+	//fazer função retornando somente a quebra de linha, guardando o restante para dar strjoin
 }

@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:49 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/21 19:22:26 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/23 16:33:36 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ char	*ft_strdup(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *str, int c);
 char	*get_next_line(int fd);
-void	*ft_memcpy(void *p_dest, const void *p_src, size_t len);
 size_t	ft_strlen(const char *str);
 
 #endif

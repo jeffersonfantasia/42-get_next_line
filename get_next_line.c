@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/26 15:13:44 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/26 19:15:13 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ char	*current_line(char *save)
 
 char	*pos_new_line(char *save)
 {
-	char *pos_new_save;
-	int	i;
-	int j;
+	char	*pos_new_save;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;

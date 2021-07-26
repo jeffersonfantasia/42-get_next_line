@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/26 19:15:13 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/26 19:34:40 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char	*get_next_line(int fd)
 	while (ret > 0)
 	{
 		ret = read(fd, buffer, BUFFER_SIZE);
+		if (ret == NULL)
+			return (NULL);
 		if (ret == -1)
 		{
 			free(buffer);

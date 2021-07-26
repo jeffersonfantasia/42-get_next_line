@@ -1,0 +1,6 @@
+carro
+moto
+casa
+trem
+gaveta
+cachorro gato

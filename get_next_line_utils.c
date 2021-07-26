@@ -6,11 +6,28 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/23 16:33:30 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/26 14:58:24 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"get_next_line.h"
+
+void	*ft_calloc(size_t num, size_t len)
+{
+	void	*p_src;
+	size_t	i;
+
+	p_src = (void *)malloc(num * len);
+	if (p_src == NULL)
+		return (NULL);
+	i = 0;
+	while (i < (num * len))
+	{
+		((unsigned char *)p_src)[i] = '\0';
+		i++;
+	}
+	return (p_src);
+}
 
 char	*ft_strdup(const char *str)
 {
@@ -19,10 +36,9 @@ char	*ft_strdup(const char *str)
 	int		i;
 
 	len = ft_strlen(str) ;
-	str_m = (char *)malloc((len + 1) * sizeof(char));
+	str_m = (char *)ft_calloc((len + 1), sizeof(char));
 	if (str_m == NULL)
 		return (NULL);
-	str_m[len] = '\0';
 	i = -1;
 	while (str[++i])
 		str_m[i] = str[i];
@@ -59,10 +75,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc((len + 1) * sizeof(char));
+	str = (char *)ft_calloc((len + 1), sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	str[len] = 0;
 	i = -1;
 	while (*(s1 + ++i) != '\0')
 		*(str + i) = *(s1 + i);

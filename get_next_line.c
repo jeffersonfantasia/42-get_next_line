@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/23 16:27:42 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/26 15:13:44 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ char	*current_line(char *save)
 		return (NULL);
 	while (save[i] && save[i] != '\n')
 		i++;
-	current_save = (char *)malloc((i + 1) * sizeof(char));
+	current_save = (char *)ft_calloc((i + 1), sizeof(char));
 	if (current_save == NULL)
 		return (NULL);
-	current_save[i] = '\0';
 	i = -1;
 	while (save[++i] && save[i] != '\n')
 		current_save[i] = save[i];
@@ -44,10 +43,9 @@ char	*pos_new_line(char *save)
 		return (NULL);
 	while (save[i] && save[i] != '\n')
 		i++;
-	pos_new_save = (char *)malloc(((ft_strlen(save) - i) + 1) * sizeof(char));
+	pos_new_save = (char *)ft_calloc((ft_strlen(save) - i), sizeof(char));
 	if (pos_new_save == NULL)
 		return (NULL);
-	pos_new_save[ft_strlen(save) - i] = '\0';
 	i++;
 	while (save[i])
 		pos_new_save[j++] = save[i++];
@@ -62,10 +60,9 @@ char	*get_next_line(int fd)
 	static char	*save;
 	ssize_t		ret;
 
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (buffer == NULL)
 		return (NULL);
-	buffer[BUFFER_SIZE] = '\0';
 	ret = 1;
 	while (ret > 0)
 	{
@@ -75,7 +72,6 @@ char	*get_next_line(int fd)
 			free(buffer);
 			return (NULL);
 		}
-		buffer[ret] = 0;
 		if (save == NULL)
 			save = ft_strdup(buffer);
 		else

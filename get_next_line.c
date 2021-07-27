@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/26 21:19:08 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/26 21:27:37 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char	*get_next_line(int fd)
 			free(buffer);
 			return (NULL);
 		}
+		buffer[ret] = '\0';
 		save = ft_strjoin(save, buffer);
 	}
 	free(buffer);

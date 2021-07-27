@@ -6,11 +6,12 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/26 19:34:40 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/26 21:19:08 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 char	*current_line(char *save)
 {
@@ -64,26 +65,15 @@ char	*get_next_line(int fd)
 	if (buffer == NULL)
 		return (NULL);
 	ret = 1;
-	while (ret > 0)
+	while (ret > 0 && !ft_strchr(save, '\n'))
 	{
 		ret = read(fd, buffer, BUFFER_SIZE);
-		if (ret == NULL)
-			return (NULL);
 		if (ret == -1)
 		{
 			free(buffer);
 			return (NULL);
 		}
-		if (save == NULL)
-			save = ft_strdup(buffer);
-		else
-		{
-			temp = ft_strjoin(save, buffer);
-			free(save);
-			save = temp;
-		}
-		if (ft_strchr(save, '\n'))
-			break ;
+		save = ft_strjoin(save, buffer);
 	}
 	free(buffer);
 	temp = current_line(save);

@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 16:08:47 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 16:16:03 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,7 @@ char    *get_next_line(int fd)
     }
     free(buffer);
     current_line = before_line_breaker(save);
-    puts("------------------------------------------");
-    printf("current_line: |%s|\n", current_line);
     save = after_line_breaker(save);
-    printf("save: |%s|\n", save);
-    puts("------------------------------------------");
     if (ret == 0 && save == NULL)
     {
         free(current_line);

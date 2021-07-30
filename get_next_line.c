@@ -6,63 +6,66 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/29 21:47:21 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 14:19:03 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*current_line(char *save)
+char	*before_line_breaker(char *save)
 {
-	char	*before_line_breaker;
+	char	*current_line;
 	int		i;
 
-	i = 0;
 	if (!save)
 		return (NULL);
-	while (save[i] && save[i] != '\n')
+	i = 0;
+	while (save && save[i] != '\n')
 		i++;
-	before_line_breaker = (char *)ft_calloc((i + 1), sizeof(char));
-	if (before_line_breaker == NULL)
+	current_line = (char *)ft_calloc((i + 1), sizeof(char));
+	if (!current_line)
 		return (NULL);
 	i = 0;
-	while (save[i] && save[i] != '\n')
+	while (save && save[i] != '\n')
 	{
-		before_line_breaker[i] = save[i];
+		current_line[i] = save[i];
 		i++;
 	}
-	return (before_line_breaker);
+	return (current_line);
 }
 
-char	*next_line(char *save)
+char	*after_line_breaker(char *save)
 {
-	char	*after_line_breaker;
+	char	*next_line;
 	int		i;
 	int		j;
 
-	i = 0;
-	j = 0;
 	if (!save)
 		return (NULL);
-	while (save[i] && save[i] != '\n')
+	i = 0;
+	while (save && save[i] != '\n')
 		i++;
-	after_line_breaker = (char *)ft_calloc((ft_strlen(save) - i), sizeof(char));
-	if (after_line_breaker == NULL)
-		return (NULL);
 	i++;
-	while (save[i])
+	while (save[i + j] != '\0')
+		j++;
+	next_line = (char *)ft_calloc((j + 1), sizeof(char));
+	if (!next_line)
+		return (NULL);
+	j = 0;
+	while (save[i] != '\0')
 	{
-		after_line_breaker[j] = save[i];
+		next_line[j] = save[i];
 		j++;
 		i++;
 	}
 	free(save);
-	return (after_line_breaker);
+	return (next_line);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*before_line_breaker;
+	char		*current_line;
+	char		*next_line;
 	char		*buffer;
 	static char	*save;
 	ssize_t		ret;
@@ -71,7 +74,7 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (NULL);
 	ret = 1;
-	while (ret > 0 && !verify_line_breaker(save))
+	while (ret > 0 && !ft_strchr(save, '\n'))
 	{
 		ret = read(fd, buffer, BUFFER_SIZE);
 		if (ret == -1)
@@ -83,7 +86,13 @@ char	*get_next_line(int fd)
 		save = ft_strjoin(save, buffer);
 	}
 	free(buffer);
-	before_line_breaker = current_line(save);
-	save = next_line(save) ;
-	return (before_line_breaker);
+	current_line = before_line_breaker(save);
+	next_line = after_line_breaker(save);
+	save = next_line;
+	puts("------------------------------------------");
+	printf("current_line: %s\n", current_line);
+	printf("next_line: %s\n", next_line);
+	printf("save: %s\n", save);
+	puts("------------------------------------------");
+	return (current_line);
 }

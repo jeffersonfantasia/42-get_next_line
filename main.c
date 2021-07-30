@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 19:09:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 14:18:03 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 14:31:39 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char const *argv[])
 	while (fd > 0)
 	{
 		test = get_next_line(fd);
-		//printf("%s\n", test);
+		printf("fd: %ld\n", fd);
 		i++;
 	}
 	if (argc == 2)

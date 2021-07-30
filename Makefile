@@ -6,7 +6,7 @@
 #    By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/21 19:24:43 by jfranchi          #+#    #+#              #
-#    Updated: 2021/07/30 14:28:19 by jfranchi         ###   ########.fr        #
+#    Updated: 2021/07/30 14:41:02 by jfranchi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FILE = file.txt
 
 #Compilation
 CC = gcc
-#FLAGS = -Wall -Werror -Wextra -fsanitize=address -D BUFFER_SIZE=2
+FLAGS-F = -Wall -Werror -Wextra -fsanitize=address -D BUFFER_SIZE=7
 FLAGS = -Wall -Werror -Wextra -D BUFFER_SIZE=7
 
 #List all the source files with .c
@@ -34,6 +34,9 @@ $(NAME): $(OBJS)
 
 %.o: %.c
 	$(CC) -c $(FLAGS) $< -o $@
+
+f: $(NAME)
+	$(CC) $(FLAGS-F) $(SRCS) -o $(NAME) && ./$(NAME) $(FILE)
 
 clean:
 	@rm -vf *.out

@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 14:16:15 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 14:30:23 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,6 @@ size_t	ft_strlen(const char *str)
 	while (str[len])
 		len++;
 	return (len);
-}
-
-char	*verify_line_breaker(char *str)
-{
-	unsigned int	i;
-
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (str[i] == '\0')
-	{
-		if (str[i] == '\n')
-			return (str);
-		i++;
-	}
-	return (NULL);
 }
 
 char	*ft_strchr(const char *str, int c)

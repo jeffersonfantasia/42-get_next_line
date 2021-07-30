@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 17:49:48 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 17:52:19 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ char	*get_next_line(int fd)
 		free(current_line);
 		return (NULL);
 	}
-	printf("current_line: %s\n", current_line);
-	printf("save: %s\n", save);
+	// printf("current_line: %s\n", current_line);
+	// printf("save: %s\n", save);
 	return (current_line);
 }

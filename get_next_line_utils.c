@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/26 21:25:56 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/29 21:45:20 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,40 +29,30 @@ void	*ft_calloc(size_t num, size_t len)
 	return (p_src);
 }
 
-char	*ft_strdup(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	len;
-	char	*str_m;
-	int		i;
 
-	len = ft_strlen(str) ;
-	str_m = (char *)ft_calloc((len + 1), sizeof(char));
-	if (str_m == NULL)
-		return (NULL);
-	i = -1;
-	while (str[++i])
-		str_m[i] = str[i];
-	return (str_m);
+	if (!str)
+		return (0);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
 
-char	*ft_strchr(const char *str, int c)
+char	*verify_line_breaker(char *str)
 {
 	unsigned int	i;
 
 	if (!str)
 		return (NULL);
-	if (c == 0)
+	i = 0;
+	while (str[i])
 	{
-		i = 0;
-		while (str[i])
-			i++;
-		return ((char *)str + i);
-	}
-	while (*str != '\0')
-	{
-		if (*str == (char)c)
-			return ((char *)str);
-		str++;
+		if (str[i] == '\n')
+			return (&str[i]);
+		i++;
 	}
 	return (NULL);
 }
@@ -79,30 +69,18 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (s1 && (*(s1 + i)) )
+	while (s1 && s1[i])
 	{
-		*(str + i) = *(s1 + i);
+		str[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (s2 && (*(s2 + j)))
+	while (s2 && s2[j])
 	{
-		*(str + i) = *(s2 + j);
+		str[i] = s2[j];
 		i++;
 		j++;
 	}
 	free(s1);
 	return (str);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	if (!str)
-		return (0);
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 19:09:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/26 20:48:53 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/26 21:35:39 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char const *argv[])
 	else
 		return (2);
 	i = 0;
-	while (i++ < 3)
+	while (i++ < 2)
 	{
 		test = get_next_line(fd);
 		printf("%s\n", test);

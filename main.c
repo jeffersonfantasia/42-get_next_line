@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 19:09:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 17:14:30 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 17:43:19 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int		main(int argc, char const *argv[])
 	do
 	{
 		test = get_next_line(fd);
+		puts("-------------main----------");
 		printf("|%s|\n", test);
+		//printf("|\n|\n");
 		if (test)
 			free(test);
 	}

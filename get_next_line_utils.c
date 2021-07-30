@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 14:30:23 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 16:09:47 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,19 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		i;
 	int		j;
 
-	if (!s1 && !s2)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 	str = (char *)ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (s1 && s1[i] != '\0')
+	while (s1 && s1[i])
 	{
 		str[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (s2 && s2[j] != '\0')
+	while (s2 && s2[j])
 	{
 		str[i] = s2[j];
 		i++;

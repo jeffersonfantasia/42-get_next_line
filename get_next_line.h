@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:49 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 18:40:55 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 18:46:39 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
-# include <stdio.h>
 
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *str);

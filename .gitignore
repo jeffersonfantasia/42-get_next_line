@@ -1,4 +1,4 @@
-# file.txt
-# main.c
-# Makefile
+*.txt
+main.c
+Makefile
 gnlTester

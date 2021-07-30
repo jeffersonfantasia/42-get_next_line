@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 18:44:52 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 18:59:16 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,17 @@ char	*after_line_breaker(char *save)
 	return (next_line);
 }
 
+char	*verify_end_file(char *save, ssize_t ret, char *current_line)
+{
+	if (!save && ret == 0 && ft_strlen(current_line) == 0)
+	{
+		free(current_line);
+		return (NULL);
+	}
+	else
+		return (current_line);
+}
+
 char	*get_next_line(int fd)
 {
 	char		*current_line;
@@ -90,10 +101,6 @@ char	*get_next_line(int fd)
 	free(buffer);
 	current_line = before_line_breaker(save);
 	save = after_line_breaker(save);
-	if (!save && ret == 0 && ft_strlen(current_line) == 0)
-	{
-		free(current_line);
-		return (NULL);
-	}
+	current_line = verify_end_file(save, ret, current_line);
 	return (current_line);
 }

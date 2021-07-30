@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 19:09:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 17:43:19 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 19:07:17 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-int		main(int argc, char const *argv[])
+int	main(int argc, char const *argv[])
 {
-	ssize_t    fd;
-	char *test;
+	ssize_t	fd;
+	char	*test;
+
 	fd = 0;
 	if (argc == 1)
 		fd = 0;
@@ -30,13 +31,11 @@ int		main(int argc, char const *argv[])
 		test = get_next_line(fd);
 		puts("-------------main----------");
 		printf("|%s|\n", test);
-		//printf("|\n|\n");
 		if (test)
 			free(test);
-	}
-	while (test != NULL);
+	} while (test != NULL);
 	if (test)
 		free(test);
-	close (fd);
+	close(fd);
 	return (0);
 }

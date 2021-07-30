@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:43 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 16:09:47 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 16:46:05 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,22 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	free(s1);
 	return (str);
+}
+
+int		ft_strcmp(char *str1, char *str2)
+{
+	size_t	n;
+
+	if (!str1 && !str2)
+		return (0);
+	n = 0;
+	while (str1 && str2)
+	{
+		if (str1[n] != str2[n])
+			return (str1[n] - str2[n]);
+		if (!str1[n] && !str2[n])
+			return (0);
+		n++;
+	}
+	return (0);
 }

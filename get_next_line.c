@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 18:08:59 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 18:42:06 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*before_line_breaker(char *save)
 		current_line[i] = save[i];
 	return (current_line);
 }
-//carro\n\0
+
 char	*after_line_breaker(char *save)
 {
 	char	*next_line;
@@ -55,7 +55,6 @@ char	*after_line_breaker(char *save)
 		return (NULL);
 	}
 	next_line = (char *)ft_calloc((ft_strlen(save) - i), sizeof(char));
-	//carro\nmoto
 	if (!next_line)
 		return (NULL);
 	i++;
@@ -91,7 +90,7 @@ char	*get_next_line(int fd)
 	free(buffer);
 	current_line = before_line_breaker(save);
 	save = after_line_breaker(save);
-	if (ret == 0 && save == NULL)
+	if (!save && ret == 0 && ft_strlen(current_line) == 0)
 	{
 		free(current_line);
 		return (NULL);

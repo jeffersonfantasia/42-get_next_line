@@ -6,7 +6,7 @@
 #    By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/21 19:24:43 by jfranchi          #+#    #+#              #
-#    Updated: 2021/07/30 16:03:51 by jfranchi         ###   ########.fr        #
+#    Updated: 2021/07/30 18:11:32 by jfranchi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ f:	clean $(NAME)
 clean:
 	@rm -vf *.out
 	@rm -vf *.o
+	@rm -vf main
 
 git:
 	git add .

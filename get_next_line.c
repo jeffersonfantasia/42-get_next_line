@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 17:52:19 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 18:07:31 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,11 @@ char	*before_line_breaker(char *save)
 	if (!save)
 		return (NULL);
 	i = 0;
+	while (save[i] && save[i] != '\n')
+		i++;
 	if (save[i] == '\n')
-	{
-		current_line = (char *)ft_calloc(2, sizeof(char));
-		current_line[i] = save[i];
-	}
-	else
-	{
-		while (save[i] && save[i] != '\n')
-			i++;
-		current_line = (char *)ft_calloc((i + 1), sizeof(char));
-	}
+		i++;
+	current_line = (char *)ft_calloc((i + 1), sizeof(char));
 	if (!current_line)
 		return (NULL);
 	i = 0;
@@ -39,9 +33,11 @@ char	*before_line_breaker(char *save)
 		current_line[i] = save[i];
 		i++;
 	}
+	if (save[i] == '\n')
+		current_line[i] = save[i];
 	return (current_line);
 }
-//carro
+//carro\n\0
 char	*after_line_breaker(char *save)
 {
 	char	*next_line;
@@ -59,6 +55,7 @@ char	*after_line_breaker(char *save)
 		return (NULL);
 	}
 	next_line = (char *)ft_calloc((ft_strlen(save) - i), sizeof(char));
+	//carro\nmoto
 	if (!next_line)
 		return (NULL);
 	i++;
@@ -66,11 +63,6 @@ char	*after_line_breaker(char *save)
 	while (save[i] != '\0')
 		next_line[j++] = save[i++];
 	free(save);
-	if (ft_strcmp(next_line, ""))
-	{
-		free(next_line);
-		return (NULL);
-	}
 	return (next_line);
 }
 
@@ -104,7 +96,9 @@ char	*get_next_line(int fd)
 		free(current_line);
 		return (NULL);
 	}
-	// printf("current_line: %s\n", current_line);
-	// printf("save: %s\n", save);
+	puts("------------------------------");
+	printf("current_line: %s\n", current_line);
+	printf("save: %s\n", save);
+	puts("------------------------------");
 	return (current_line);
 }

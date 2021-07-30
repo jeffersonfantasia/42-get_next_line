@@ -6,7 +6,7 @@
 #    By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/21 19:24:43 by jfranchi          #+#    #+#              #
-#    Updated: 2021/07/30 14:26:45 by jfranchi         ###   ########.fr        #
+#    Updated: 2021/07/30 14:28:19 by jfranchi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,5 +43,8 @@ git:
 	git add .
 	git commit -m "create or upload files"
 	git push origin
+
+v:
+	valgrind --leak-check=full --show-leak-kinds=all ./a.out file.txt
 
 .PHONY:	all, clean

@@ -6,7 +6,7 @@
 /*   By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:41:46 by jfranchi          #+#    #+#             */
-/*   Updated: 2021/07/30 14:19:03 by jfranchi         ###   ########.fr       */
+/*   Updated: 2021/07/30 14:25:22 by jfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char	*after_line_breaker(char *save)
 	while (save && save[i] != '\n')
 		i++;
 	i++;
+	j = 0;
 	while (save[i + j] != '\0')
 		j++;
 	next_line = (char *)ft_calloc((j + 1), sizeof(char));

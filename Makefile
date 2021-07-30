@@ -6,7 +6,7 @@
 #    By: jfranchi <jfranchi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/21 19:24:43 by jfranchi          #+#    #+#              #
-#    Updated: 2021/07/30 14:20:16 by jfranchi         ###   ########.fr        #
+#    Updated: 2021/07/30 14:26:45 by jfranchi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,5 +38,10 @@ $(NAME): $(OBJS)
 clean:
 	@rm -vf *.out
 	@rm -vf *.o
+
+git:
+	git add .
+	git commit -m "create or upload files"
+	git push origin
 
 .PHONY:	all, clean
